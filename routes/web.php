@@ -25,6 +25,11 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/', function () {
+    session()->put('test', 'セッションにデータ追加');
+    return Inertia::render('Welcome');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
